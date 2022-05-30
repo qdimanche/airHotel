@@ -1,0 +1,175 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold !important;
+}
+
+
+
+input {
+    width: 100%;
+    height: 2em;
+    border-radius: 3px;
+    padding: 0.75em !important;
+    color : black !important;
+}
+
+span  {
+    color : #8b5cf6;
+}
+
+li {
+    color: gainsboro;
+}
+
+
+
+li:hover {
+    color: white
+}
+
+
+.menu_overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    color: #fff;
+    z-index: 100;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    background-color: #1D1D1D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.list {
+    height: 40%;
+    width: 100%;
+    position: relative;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list li {
+    height: auto;
+    width: auto;
+}
+
+.list a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    border-bottom: 2px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.list a:hover {
+    color: #8b5cf6;
+}
+
+.menu_overlay .fas {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+.menu_overlay .fas:hover {
+    color: #8b5cf6;
+    transform: scale(1.1) rotate(180deg);
+}
+
+#menuBtn {
+    display: none;
+}
+
+.landing_page {
+    max-height: 100vh;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.fas {
+    font-size: 2rem;
+    color: white;
+}
+
+.fas:hover {
+    color: #8b5cf6;
+}
+
+.side_text {
+    height: 10vh;
+    width: 30%;
+    color: #8b5cf6;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-shadow: 0 0 1px #111;
+    padding: 10px;
+    font-size: 16px;
+    color: #8b5cf6;
+}
+
+.main_text {
+    color: #8b5cf6;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 1px #111;
+    display: flex;
+    flex-direction: column;
+}
+
+.h2-r,
+.h2-l {
+    font-size: 6rem;
+}
+
+.h2-r {
+    transform: rotate(270deg);
+    margin-left: -100px;
+    z-index: 10;
+}
+
+.h2-l {
+    margin-left: 100px;
+    background-color: #4b134f;
+    padding: 20px;
+    z-index: 0;
+}
+
+@media screen and (max-width: 650px) {
+    .list a {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+
