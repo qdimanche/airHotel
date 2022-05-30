@@ -2,7 +2,14 @@
 session_start();
 if (!isset($_SESSION['email']))
     header('location:login.php');
+
+$bdd = new PDO('mysql:host=localhost; dbname=airHotel; charset=UTF8', 'root', '');
+$display_hotels = $bdd->prepare("SELECT * FROM hotel");
+$query = $bdd->prepare($display_hotels);
+$display_hotels->execute();
+
 ?>
+
 
 
 <!doctype html>
@@ -62,7 +69,7 @@ if (!isset($_SESSION['email']))
                                     <a href="#" class="block py-2 px-4 text-sm">Profil</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block py-2 px-4 text-sm">Admin</a>
+                                    <a href="admin.php" class="block py-2 px-4 text-sm">Admin</a>
                                 </li>
                                 <li>
                                     <a href="../controller/disconnect.php" class="block py-2 px-4 text-sm">Disconnect</a>
@@ -106,7 +113,7 @@ if (!isset($_SESSION['email']))
                         <div class="flex flex-col space-y-6 mt-8 ">
                             <li><a href="#">Home</a></li>
                             <li>
-                                <a href="#">Admin</a>
+                                <a href="admin.php">Admin</a>
                             </li>
                             <li><a href="/src/view/#nouveautes">Hotels</a></li>
                             <li><a href="/src/view/#films-populaires">Flights</a></li>
@@ -132,35 +139,64 @@ if (!isset($_SESSION['email']))
 
 
     <div class="container lg:mx-auto mt-12 mx-6">
-        <div class="grid lg:grid-cols-2 grid-cols-1 gap-3 flex text-center">
-            <div class="flex w-full">
-                <div class="w-2/5 flex lg:mr-3 mr-8 h-full bg-[url('../assets/hotel1.jpg')] !bg-cover !bg-center">
-                </div>
 
-                <div class="flex flex-col lg:justify-start lg:p-8 text-left w-3/5">
-                    <div class="flex items-center mb-4">
-                        <div class="flex lg:flex-row flex-col lg:items-center">
-                            <h2 class="text-xl mr-4">Hôtel La Sanguine</h2>
-                            <div class="flex">
-                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-3 flex text-center">
+                <?php
+                foreach ($display_hotels as $am) {
+                ?>
+                <div class="flex w-full">
+                    <?php
+                    $base64 = 'data:image.jpg ;base64,' . base64_encode($am['hotelImage']);
+
+                    ?>
+
+                        <div class="w-2/5 flex lg:mr-3 mr-8 h-full !bg-cover !bg-center" style='background-image: url("<?php echo $base64?>")'> </div>
+
+
+
+
+
+
+
+
+
+                    <div class="flex flex-col lg:justify-start lg:p-8 text-left w-3/5">
+                        <div class="flex items-center mb-4">
+                            <div class="flex lg:flex-row flex-col lg:items-center">
+                                <h2 class="text-xl mr-4">
+                                    <?php echo $am['name']?>
+                                </h2>
+                                <div class="flex">
+                                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
                             </div>
+
                         </div>
+                        <span>
+                            <?php echo $am['location']?>
+                        </span>
+                        <p>
+                            <?php echo $am['room_number']?> room(s)
+                        </p>
 
+                        <span class="mt-3 font-bold">
+                            € <?php echo $am['price']?>
+                        </span>
+                        <button class="mt-8 bg-[#0071c2] w-fit rounded-[3px] py-1 px-6 hover:bg-[#0066af]">Book</button>
                     </div>
-                    <span>8e arr., Paris</span>
-                    <p>Chambre Double Standard</p>
 
-                    <span class="mt-3 font-bold">€ 200</span>
-                    <button class="mt-8 bg-[#0071c2] w-fit rounded-[3px] py-1 px-6 hover:bg-[#0066af]">Réserver</button>
                 </div>
+                    <?php
+                }
+                ?>
 
             </div>
 
-        </div>
+
     </div>
 
 </body>
