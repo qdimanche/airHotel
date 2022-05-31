@@ -16,8 +16,6 @@ if ($_POST['hotelName'] && $_POST['hotelLocation'] && $_POST['roomNumber'] && $_
 
     if ($count == 0) {
 
-
-
         $insert = "INSERT INTO hotel(name, location, room_number, price, hotelImage) VALUES ('$hotelName', '$hotelLocation', '$roomNumber', '$price', '$imageContent')";
         $query = $db->prepare($insert);
         $query->execute();
