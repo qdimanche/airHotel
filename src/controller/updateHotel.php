@@ -23,7 +23,7 @@ session_start();
         $c_update="UPDATE hotel SET name = '$hotelName', location = '$hotelLocation', room_number = '$roomNumber', price = '$price' WHERE hotel.id = '$id' ";
 }
 
-   $query = $db->prepare($c_update);
+    $query = $db->prepare($c_update);
     $result = $query->execute();
     header('Location: ../view/index.php');
 

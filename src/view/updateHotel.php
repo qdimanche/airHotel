@@ -29,7 +29,7 @@ $data = $check->fetch();
     <?php include("header.php") ?>
 
     <div class="flex justify-center">
-        <div class="flex flex-col bg-[#343434] m-16  py-6 relative px-8 rounded">
+        <div class="flex flex-col bg-[#343434] m-6  py-6 relative px-8 rounded">
 
             <form action="../controller/updateHotel.php" class="flex flex-col space-y-6" method="post" enctype="multipart/form-data">
 

@@ -22,8 +22,8 @@ if (!isset($_SESSION['email']))
 
     <?php include("header.php") ?>
 
-    <div class="flex justify-center items-center mt-16">
-        <form action="../controller/addHotel.php" class="w-2/5 flex space-y-6 flex-col bg-[#343434] m-16  py-6 relative px-8 rounded" method="post" enctype="multipart/form-data">
+    <div class="flex justify-center items-center mt-6">
+        <form action="../controller/addHotel.php" class="w-3/5 flex space-y-6 flex-col bg-[#343434]  py-6 relative px-8 rounded" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="Name" class="" name="hotelName">
             <input type="text" placeholder="Location" class="" name="hotelLocation">
             <input type="text" placeholder="Room's number" class="" name="roomNumber">

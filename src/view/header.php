@@ -33,7 +33,6 @@
 
                         <div class="hidden z-50 my-4 text-base list-none bg-[#1D1D1D] rounded divide-y divide-[#F14747] shadow " id="dropdown" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(1015px, 1022px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
                             <div class="py-3 px-4">
-                                <span class="block text-sm font-medium text-white truncate">Username</span>
                                 <span class="block text-sm mt-2 font-medium text-slate-100 truncate"><?php echo($_SESSION['email']) ?></span>
                             </div>
                             <ul class="py-1 !border-[#8b5cf6]" aria-labelledby="dropdown">
